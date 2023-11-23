@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graduations index{% endblock %}
+
+{% block body %}
+    <h1>Graduations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Schools</th>
+                <th>Studies</th>
+                <th>Img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for graduation in graduations %}
+            <tr>
+                <td>{{ graduation.id }}</td>
+                <td>{{ graduation.title }}</td>
+                <td>{{ graduation.schools }}</td>
+                <td>{{ graduation.studies }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ graduation.img) }}" width="100"></td>
+                <td>
+                    <a href="{{ path('app_graduations_show', {'id': graduation.id}) }}">show</a>
+                    <a href="{{ path('app_graduations_edit', {'id': graduation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_graduations_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Skills index{% endblock %}
+
+{% block body %}
+    <h1>Skills index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Soft_skills</th>
+                <th>Hard_skills</th>
+                <th>Expertises</th>
+                <th>Icons</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for skill in skills %}
+            <tr>
+                <td>{{ skill.id }}</td>
+                <td>{{ skill.softSkills }}</td>
+                <td>{{ skill.hardSkills }}</td>
+                <td>{{ skill.expertises }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ skill.icons) }}" width="100"></td>
+                <td>
+                    <a href="{{ path('app_skills_show', {'id': skill.id}) }}">show</a>
+                    <a href="{{ path('app_skills_edit', {'id': skill.id}) }}">edit</a>
+                </td>
+                <td>{{ skill.duration }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_skills_new') }}">Create new</a>
+{% endblock %}

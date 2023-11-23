@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="styles/style.css">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{# {% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+			{% endblock %}
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %} #}
+		</head>
+		<body>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" datatarget="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('home') }}">Home
+								<span class="sronly">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_contact_index') }}">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_experiences_index') }}">Experiences</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_graduations_index') }}">Graduations</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_hobbies_index') }}">Hobbies</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_languages_index') }}">Languages</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_sites_index') }}">Sites</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_skills_index') }}">Skills</a>
+						</li>
+						{# <li class="nav-item">
+							<a class="nav-link disabled" href="{{ path('app_categories_index') }}">Catégories</a>
+						</li> #}
+					</ul>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" arialabel="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</form>
+				</div>
+			</nav>
+			{% block body %}{% endblock %}
+		</body>
+    <script src="https://kit.fontawesome.com/50b4ed0339.js" crossorigin="anonymous"></script>
+	</html>

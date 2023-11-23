@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graduations{% endblock %}
+
+{% block body %}
+    <h1>Graduations</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ graduation.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ graduation.title }}</td>
+            </tr>
+            <tr>
+                <th>Schools</th>
+                <td>{{ graduation.schools }}</td>
+            </tr>
+            <tr>
+                <th>Studies</th>
+                <td>{{ graduation.studies }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td><img src="{{ asset('uploads/images/' ~ graduation.img) }}" width="100"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_graduations_index') }}">back to list</a>
+
+    <a href="{{ path('app_graduations_edit', {'id': graduation.id}) }}">edit</a>
+
+    {{ include('graduations/_delete_form.html.twig') }}
+{% endblock %}
